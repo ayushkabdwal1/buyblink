@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyBlink - Checkout</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #ff9800;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .order-summary {
+            margin-top: 20px;
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .order-summary h3 {
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .order-summary p {
+            margin: 5px 0;
+            color: #666;
+        }
+        .checkout-btn {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .checkout-btn:hover {
+            background-color: #e68900;
+        }
+        .confirmation {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .confirmation h3 {
+            color: #333;
+        }
+        .confirmation p {
+            color: #666;
+        }
+        .back-home {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff9800;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .back-home:hover {
+            background-color: #e68900;
+        }
+    </style>
+    <script>
+        function placeOrder(event) {
+            event.preventDefault();
+            const orderId = "BB" + Math.floor(Math.random() * 1000000);
+            document.getElementById("checkout-form").style.display = "none";
+            const confirmation = document.getElementById("order-confirmation");
+            confirmation.innerHTML = `
+                <h3>Order Confirmed!</h3>
+                <p>Your order ID is <strong>${orderId}</strong>.</p>
+                <p>Thank you for shopping with BuyBlink! Your order will be delivered soon.</p>
+                <a href="home.html" class="back-home">Back to Home</a>
+            `;
+            confirmation.style.display = "block";
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="window.location.href='home.html'">BuyBlink</div>
+        <nav>
+            <a href="profile.html">Profile</a>
+            <a href="myorders.html">My Orders</a>
+            <a href="address.HTML">Manage Address</a>
+            <a href="faq.html">FAQs</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>Checkout</h2>
+        <form id="checkout-form" onsubmit="placeOrder(event)">
+            <div>
+                <label for="full-name">Full Name</label>
+                <input type="text" id="full-name" name="full-name" placeholder="Enter your full name" required>
+            </div>
+            <div>
+                <label for="address">Delivery Address</label>
+                <textarea id="address" name="address" rows="3" placeholder="Enter your delivery address" required></textarea>
+            </div>
+            <div>
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div>
+                <label for="payment-method">Payment Method</label>
+                <select id="payment-method" name="payment-method" required>
+                    <option value="cod">Cash on Delivery</option>
+                    <option value="upi">UPI</option>
+                    <option value="card">Debit/Credit Card</option>
+                </select>
+            </div>
+            <div class="order-summary">
+                <h3>Order Summary</h3>
+                <p><strong>Items:</strong> 2</p>
+                <p><strong>Subtotal:</strong> $99.98</p>
+                <p><strong>Taxes:</strong> $9.99</p>
+                <p><strong>Total:</strong> $109.97</p>
+            </div>
+            <button type="submit" class="checkout-btn">Place Order</button>
+        </form>
+        <div id="order-confirmation" class="confirmation" style="display: none;"></div>
+    </div>
+</body>
+</html>

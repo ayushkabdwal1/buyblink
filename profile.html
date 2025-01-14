@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyBlink - Profile Management</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@3/dist/vue.global.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        .container {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: 250px;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar h2 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #ff9800;
+        }
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+        .sidebar ul li {
+            margin: 10px 0;
+        }
+        .sidebar ul li a {
+            text-decoration: none;
+            color: #333;
+            font-size: 1rem;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .sidebar ul li a:hover {
+            background-color: #ffeb3b;
+            color: #000;
+        }
+        .content {
+            flex: 1;
+            padding: 20px;
+        }
+        .content h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #333;
+        }
+        .form-section {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .btn {
+            background-color: #ff9800;
+            color: #ffffff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #ffb74d;
+        }
+        .order-buttons {
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <div class="container">
+            <div class="sidebar">
+                <h2>BUY BLINK</h2>
+                <ul>
+                    <li><a href="myoder.html">My Orders</a></li>
+                    <li><a href="#">Profile Information</a></li>
+                    <li><a href="address.HTML">Manage Addresses</a></li>
+                    <li><a href="faq.html">FAQs</a></li>
+                </ul>
+            </div>
+            <div class="content">
+                <h2>Profile Management</h2>
+                <div class="form-section">
+                    <h3>Personal Information</h3>
+                    <div class="form-group">
+                        <label for="firstName">First Name</label>
+                        <input type="text" id="firstName" v-model="profile.firstName">
+                    </div>
+                    <div class="form-group">
+                        <label for="lastName">Last Name</label>
+                        <input type="text" id="lastName" v-model="profile.lastName">
+                    </div>
+                    <div class="form-group">
+                        <label>Gender</label>
+                        <input type="radio" id="male" value="Male" v-model="profile.gender">
+                        <label for="male">Male</label>
+                        <input type="radio" id="female" value="Female" v-model="profile.gender">
+                        <label for="female">Female</label>
+                    </div>
+                </div>
+                <div class="form-section">
+                    <h3>Contact Information</h3>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" v-model="profile.email">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Mobile Number</label>
+                        <input type="text" id="phone" v-model="profile.phone">
+                    </div>
+                </div>
+                <button class="btn" @click="saveProfile">Save Profile</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const app = Vue.createApp({
+            data() {
+                return {
+                    profile: {
+                        firstName: '',
+                        lastName: '',
+                        gender: '',
+                        email: '',
+                        phone: ''
+                    }
+                };
+            },
+            methods: {
+                saveProfile() {
+                    alert(`Profile saved!\nFirst Name: ${this.profile.firstName}\nLast Name: ${this.profile.lastName}\nGender: ${this.profile.gender}\nEmail: ${this.profile.email}\nPhone: ${this.profile.phone}`);
+                }
+            }
+        });
+
+        app.mount('#app');
+    </script>
+</body>
+</html>

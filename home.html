@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyBlink - Home</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+             background-color: #fdb915;
+        }
+        header {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .banner {
+            background: url(' https://static.vecteezy.com/system/resources/previews/022/217/275/non_2x/background-banner-colorful-bright-orange-gradation-vector.jpg') no-repeat center center/cover;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+        .banner h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 0 20px;
+            color: white;
+           
+            
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .category {
+            flex: 1 1 calc(33.333% - 20px);
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            cursor: pointer;
+        }
+        .category img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .category h3 {
+            margin: 10px 0;
+            color: #333;
+        }
+        .category:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="window.location.href='home.html'">BuyBlink</div>
+        <nav>
+            <a href="profile.html">Profile</a>
+            <a href="myoder.html">My Orders</a>
+            <a href="address.html">Manage Address</a>
+            <a href="faq.html">FAQs</a>
+        </nav>
+    </header>
+    <div class="banner">
+        <h1>Welcome to BuyBlink!</h1>
+    </div>
+    <div class="container">
+        <h2>Shop by Categories</h2>
+        <div class="categories">
+            <div class="category" onclick="window.location.href='category.html'">
+                <img src="https://10web.io/blog/wp-content/uploads/sites/2/2024/08/sell-electronics-online.jpg" alt="Electronics">
+                <h3>Electronics</h3>
+            </div>
+            <div class="category" onclick="window.location.href='category.html'">
+                <img src="https://www.beyoung.in/api/cache/catalog/products/banner_desktop/Women-clothing-banner-mobile-view_28_07_2023_767x430.jpg" alt="Clothing">
+                <h3>Clothing</h3>
+            </div>
+            <div class="category" onclick="window.location.href='category.html'">
+                <img src="https://www.dennisfamily.com.au/wp-content/uploads/2017/07/148.jpg" alt="Home & Kitchen">
+                <h3>Home & Kitchen</h3>
+            </div>
+            <div class="category" onclick="window.location.href='category.html'">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/044/280/984/small_2x/stack-of-books-on-a-brown-background-concept-for-world-book-day-photo.jpg" alt="Books">
+                <h3>Books</h3>
+            </div>
+            <div class="category" onclick="window.location.href='category.html'">
+                <img src="https://www.psychologs.com/wp-content/uploads/2024/01/The-Psychology-of-beauty.jpg" alt="Beauty">
+                <h3>Beauty</h3>
+            </div>
+            <div class="category" onclick="window.location.href='category.html'">
+                <img src="https://static01.nyt.com/images/2020/07/21/autossell/sports-reboot-promo-still/sports-reboot-promo-still-superJumbo.jpg" alt="Sports">
+                <h3>Sports</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

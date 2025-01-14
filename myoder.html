@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuyBlink - My Orders</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+        }
+        header {
+            background-color: #ff9800;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        header .logo {
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            color: #ff9800;
+            text-align: center;
+        }
+        .tabs {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .tabs button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .tabs button.active {
+            background-color: #e68900;
+        }
+        .tabs button:hover {
+            background-color: #e68900;
+        }
+        .order-list {
+            display: none;
+        }
+        .order-list.active {
+            display: block;
+        }
+        .order-item {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .order-item h4 {
+            margin: 0;
+            color: #333;
+        }
+        .order-item .actions button {
+            background-color: #ff9800;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .order-item .actions button:hover {
+            background-color: #e68900;
+        }
+    </style>
+    <script>
+        function toggleOrders(type) {
+            document.querySelectorAll('.order-list').forEach(list => list.classList.remove('active'));
+            document.getElementById(type).classList.add('active');
+
+            document.querySelectorAll('.tabs button').forEach(button => button.classList.remove('active'));
+            document.getElementById(type + '-tab').classList.add('active');
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo" onclick="window.location.href='home.html'">BuyBlink</div>
+        <nav>
+            <a href="profile.html">Profile</a>
+            <a href="address.HTML">Manage Address</a>
+            <a href="faq.html">FAQs</a>
+        </nav>
+    </header>
+    <div class="container">
+        <h2>My Orders</h2>
+        <div class="tabs">
+            <button id="recent-tab" class="active" onclick="toggleOrders('recent')">Recent Orders</button>
+            <button id="past-tab" onclick="toggleOrders('past')">Past Orders</button>
+        </div>
+
+        <div id="recent" class="order-list active">
+            <div class="order-item">
+                <h4>Order #12345 - Wireless Earbuds</h4>
+                <div class="actions">
+                    <button>Track</button>
+                    <button>Cancel</button>
+                </div>
+            </div>
+            <div class="order-item">
+                <h4>Order #12346 - Smartphone</h4>
+                <div class="actions">
+                    <button>Track</button>
+                    <button>Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="past" class="order-list">
+            <div class="order-item">
+                <h4>Order #12340 - Bluetooth Speaker</h4>
+                <div class="actions">
+                    <button>Details</button>
+                </div>
+            </div>
+            <div class="order-item">
+                <h4>Order #12341 - Laptop</h4>
+                <div class="actions">
+                    <button>Details</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
